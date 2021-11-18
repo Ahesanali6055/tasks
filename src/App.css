@@ -26,6 +26,12 @@ body {
   color: #777373;
 }
 
+.dltbtn {
+  color: red;
+  background-color: #d3d3eb;
+  border: #d3d3eb;
+}
+
 #login
   .container
   #login-row
@@ -98,6 +104,24 @@ p::before {
   font-family: "Zen Kurenaido", sans-serif;
 }
 
+.grid {
+  padding: 5px;
+  margin: 5px;
+   margin-left: 15px;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+}
+
+.data_grid{
+ border-radius: 5px;
+ padding: 10px;
+}
+
+.title_time {
+  padding: 5px;
+  margin-left: 60px;
+}
 /* navbar */
 
 li {

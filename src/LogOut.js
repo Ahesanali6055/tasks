@@ -3,7 +3,7 @@ import { HolderName } from "./App";
 
 const LogOut = (props) => {
   const onLogout = () => {
-    props.history.push("/login");
+    props.history.push("/material-login");
   };
   return (
     <div className="thanks">

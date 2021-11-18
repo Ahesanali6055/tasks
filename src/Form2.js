@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "./FileResduce/Slice";
 import { useForm } from "react-hook-form";
+import { logins } from "./utils";
 import axios from "axios";
 
 export default function SignIn(props) {
@@ -35,11 +36,11 @@ export default function SignIn(props) {
     reValidateMode: "onChange",
   });
 
-  useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((response) => {
-      console.log(response);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`https://jsonplaceholder.typicode.com/posts`).then((response) => {
+  //     console.log(response);
+  //   });
+  // }, []);
 
   // useEffect(() => {
   //   setAppState({ loading: true });
@@ -57,12 +58,13 @@ export default function SignIn(props) {
     setValue(name, value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = () => {
     // e.preventDefault();
-    localStorage.setItem("Email", info?.email);
-    localStorage.setItem("Password", info?.password);
-    console.log(info);
-    login();
+    // localStorage.setItem("Email", info?.email);
+    // localStorage.setItem("Password", info?.password);
+    // console.log(info);
+    logins();
+    // localStorage.setItem("login", true);
     props.history.push("/public");
 
     dispatch(

@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { useHistory } from "react-router-dom";
 
-const Add = (props) => {
+const Add = () => {
   const [todoData, setTodoData] = useState("");
   const [info, setInfo] = useState({
     name: "",
@@ -17,11 +17,13 @@ const Add = (props) => {
     email: "",
   });
 
+  console.log(`info`, info);
+
   let history = useHistory();
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
     setInfo({ ...info, [name]: value });
   };
 
@@ -38,13 +40,13 @@ const Add = (props) => {
       item.index = count;
       count++;
     });
-    console.log(localItem);
+    // console.log(localItem);
     localStorage.setItem("todoList", JSON.stringify(newArr));
     history.push("/todo");
   };
 
   const addItem = () => {
-    console.log("additem");
+    // console.log("additem");
     if (!todoData) {
     } else {
       setInfo([...info]);
@@ -124,4 +126,5 @@ const Add = (props) => {
     </div>
   );
 };
+
 export default Add;

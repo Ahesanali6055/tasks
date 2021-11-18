@@ -24,17 +24,20 @@ const Navbar = () => {
             <li>
               <NavLink to="/logout">Public</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/private">Privates</NavLink>
-            </li>
+            </li> */}
             <li>
-              <NavLink to="/materialform">Material </NavLink>
+              <NavLink to="/material-login">Material </NavLink>
             </li>
             <li>
               <NavLink to="/register">Register</NavLink>
             </li>
             <li>
               <NavLink to="/todo">ToDo</NavLink>
+            </li>
+            <li>
+              <NavLink to="/timeslot">Time </NavLink>
             </li>
           </ul>
         </div>

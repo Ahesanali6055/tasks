@@ -1,9 +1,12 @@
 import React from "react";
+import { logout } from "./utils";
+// const TOKEN_KEY = "jwt";
 
 const Public = (props) => {
   const onLogout = () => {
+    logout();
     props.history.push("/logout");
-    localStorage.clear();
+    // localStorage.removeItem(TOKEN_KEY);
   };
 
   return (

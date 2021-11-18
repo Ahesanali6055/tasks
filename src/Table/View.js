@@ -6,17 +6,21 @@ import { useParams } from "react-router-dom";
 const View = () => {
   const { id } = useParams();
 
+  const intId = parseInt(id);
+
   const [info, setInfo] = useState({
     name: "",
     username: "",
     email: "",
   });
 
-  React.useEffect((id) => {
-    const data = JSON.parse(localStorage.getItem("todoList"));
-    console.log(data[id]);
-    setInfo(data);
-  }, []);
+  React.useEffect(() => {
+    const localItem = JSON.parse(localStorage.getItem("todoList"));
+    const values = localItem;
+    setInfo(localItem);
+    const getItem = values.find(({ index }) => intId === index);
+    setInfo(getItem);
+  }, [id]);
 
   return (
     <div className="container py-4">
@@ -24,7 +28,7 @@ const View = () => {
         Back
       </button>
 
-      <h2 className="mt-3">User Id: {id}</h2>
+      <h2 className="mt-3">User Id: {parseInt(id) + 1}</h2>
 
       <hr />
       <ul className="list-group w-50">

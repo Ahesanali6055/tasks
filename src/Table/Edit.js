@@ -6,12 +6,10 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-// import history from "../history";
-// import Button from "@mui/material/Button";
-// import AddIcon from "@mui/icons-material/Add";
 
 const Edit = () => {
   const { id } = useParams();
+  const intId = parseInt(id);
   const history = useHistory();
 
   const [info, setInfo] = useState({
@@ -22,20 +20,21 @@ const Edit = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
     setInfo({ ...info, [name]: value });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("todoList", JSON.stringify(info));
+    const data = info;
+    data.index = id;
+    let newArr = [];
+    newArr = [...JSON.parse(localStorage.getItem("todoList"))];
+    newArr[id] = data;
+    localStorage.setItem("todoList", JSON.stringify(newArr));
+    // console.log(newArr);
+    history.push("/todo");
   };
-
-  React.useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("todoList"));
-    console.log(`data`);
-    setInfo(data);
-  }, []);
 
   const theme = createTheme();
 
@@ -92,11 +91,7 @@ const Edit = () => {
                 value={info.email}
                 onChange={handleInput}
               />
-              <button
-                type="submit"
-                onClick={() => history.push("/todo")}
-                className="btn btn-success float-right"
-              >
+              <button type="submit" className="btn btn-success float-right">
                 UpDate
               </button>
               <button
